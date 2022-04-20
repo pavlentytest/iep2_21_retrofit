@@ -47,9 +47,10 @@ public class MainActivity extends AppCompatActivity {
         api = retrofit.create(AnekdotAPI.class);
 
         api.getAnekdot("anekdot.ru",10,"new anekdot").enqueue(new Callback<ArrayList<Anekdot>>() {
-            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(Call<ArrayList<Anekdot>> call, Response<ArrayList<Anekdot>> response) {
+                Log.d("RRR",response.code()+"");
+                Log.d("RRR",response.body()+"");
                 if(response.code() == 200) {
                     arrayList.addAll(response.body());
                     recyclerView.getAdapter().notifyDataSetChanged();

@@ -34,7 +34,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewRow> {
 
     @Override
     public int getItemCount() {
-        return anekdots.size();
+        if(anekdots == null) {
+            return 0;
+        } else
+            return anekdots.size();
     }
 
     class ViewRow extends RecyclerView.ViewHolder {
